@@ -4,3 +4,18 @@
 Решение:
 
 ![Диаграмма классов](/src/img/solid_lab2.png)
+
+<p>Тестирование кода:</p>
+
+![Prompt Wifi](/src/img/solid_lab2_prompt.png)
+![](/src/img/solid_lab2_wifi.png)
+
+
+---
+![Prompt Transfer](/src/img/solid_lab2_transfer.png)
+![](/src/img/solid_lab2_test2.png)
+
+---
+
+![Prompt Stripe](/src/img/solid_lab2_stripe.png)
+![](/src/img/solid_lab2_test3.png)
