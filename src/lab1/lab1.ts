@@ -1,40 +1,51 @@
 class Invoice {
-    private _customer: Customer
-    constructor(
-        private invoiceID: number,
-        public customer: Customer
-    ) {
-        this._customer = new Customer(1, "2")
-    }
-    public printInvoice() {
-        console.log()
-    }
-}
-
-class Customer {
-    constructor(
-        protected customerID: number,
-        protected customerEmail: string
-    ) {
-        this.customerID = customerID;
-        this.customerEmail = customerEmail;
-    }
-
+  private invoicePrint: InvoicePrint;
+  private senderEmail: SenderEmail;
+  constructor(
+    private customerID: number,
+    private customerEmail: string,
+    private customerName: string,
+    private amount: number
+  ) {
+    this.customerID = customerID;
+    this.customerEmail = customerEmail;
+    this.customerName = customerName;
+    this.amount = amount;
+    this.senderEmail = new SenderEmail(this.customerEmail, this.amount);
+    this.invoicePrint = new InvoicePrint(this.customerName, this.amount);
+  }
 }
 
 class SenderEmail {
-    private customer = Customer;
-    
-    constructor(
-    ) {
-        
-    }
+  constructor(private customerEmail: string, private amount: number) {
+    this.customerEmail = customerEmail;
+    this.amount = amount;
+  }
 
-    public sendEmailToCustomer() {
-
-    }
+  public sendEmailToCustomer() {
+    console.log(
+      "Отправка счета на почту " +
+        this.customerEmail +
+        "\n" +
+        "Количество товара: " +
+        this.amount
+    );
+  }
 }
 
-const customerID = Number(prompt('Введите ID покупателя:'))
-const customerEmail = String(prompt('Введите Email покупателя:'))
-const customer1 = new Customer(customerID, customerEmail)
+class InvoicePrint {
+  constructor(private customerName: string, private amount: number) {
+    this.customerName = customerName;
+    this.amount = amount;
+  }
+
+  public printInvoice() {
+    console.log(
+      "Счёт для " +
+        this.customerName +
+        "\n" +
+        "Количество товара:" +
+        this.amount
+    );
+  }
+}
