@@ -14,7 +14,7 @@ class Cart {
         return this._instance || (this._instance = new this());
     }
 
-    public addItem({item}: Item) {
+    public addItem(item: Item) {
 
     }
 
