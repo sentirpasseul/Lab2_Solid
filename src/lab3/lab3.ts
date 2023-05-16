@@ -4,7 +4,7 @@ class Cart {
         
     }
 
-    public static getInstance() {
+    public static getInstance(): Cart {
         return this._instance || (this._instance = new this());
     }
 
