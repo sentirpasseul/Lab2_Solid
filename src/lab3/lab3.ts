@@ -25,16 +25,20 @@ export default class Cart {
     return this._instance || (this._instance = new this());
   }
   public addItem(item: Item) {
-    if (item.title in this.items) {
-      item.amount += 1;
-    } else {
-      this.items.push(item);
+    {
+      this.items.map((item) => {
+        if (item.title in this.items) {
+          item.amount += 1;
+        } else {
+          this.items.push(item);
+        }
+      });
     }
   }
 
   public removeItem(item: Item) {
-    const index = this.items.indexOf(item)
-    this.items.splice(index, 1)
+    const index = this.items.indexOf(item);
+    this.items.splice(index, 1);
   }
 
   public getItems() {
