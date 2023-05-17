@@ -19,11 +19,16 @@ var Cart = /** @class */ (function () {
         return this._instance || (this._instance = new this());
     };
     Cart.prototype.addItem = function (item) {
-        if (item.title in this.items) {
-            item.amount += 1;
-        }
-        else {
-            this.items.push(item);
+        var _this = this;
+        {
+            this.items.map(function (item) {
+                if (item.title in _this.items) {
+                    item.amount += 1;
+                }
+                else {
+                    _this.items.push(item);
+                }
+            });
         }
     };
     Cart.prototype.removeItem = function (item) {
