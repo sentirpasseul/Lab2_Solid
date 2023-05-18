@@ -1,4 +1,4 @@
-import Cart from "./lab3";
+import Cart from "./lab3.js";
 
 const cart1 = Cart.getInstance()
 cart1.addItem({"title": "Nike", "price": "80000", 'amount': 1})

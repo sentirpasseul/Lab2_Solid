@@ -11,8 +11,5 @@
   "license": "ISC",
   "devDependencies": {
     "typescript": "^5.0.4"
-  },
-  "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.21.4"
   }
 }

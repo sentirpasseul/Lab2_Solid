@@ -1,7 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var Cart = /** @class */ (function () {
-    function Cart() {
+export default class Cart {
+    constructor() {
         this.items = [
             {
                 title: "Macbook Air 13",
@@ -15,29 +13,26 @@ var Cart = /** @class */ (function () {
             },
         ];
     }
-    Cart.getInstance = function () {
+    static getInstance() {
         return this._instance || (this._instance = new this());
-    };
-    Cart.prototype.addItem = function (item) {
-        var _this = this;
+    }
+    addItem(item) {
         {
-            this.items.map(function (item) {
-                if (item.title in _this.items) {
+            this.items.map((item) => {
+                if (item.title in this.items) {
                     item.amount += 1;
                 }
                 else {
-                    _this.items.push(item);
+                    this.items.push(item);
                 }
             });
         }
-    };
-    Cart.prototype.removeItem = function (item) {
-        var index = this.items.indexOf(item);
+    }
+    removeItem(item) {
+        const index = this.items.indexOf(item);
         this.items.splice(index, 1);
-    };
-    Cart.prototype.getItems = function () {
+    }
+    getItems() {
         return this.items;
-    };
-    return Cart;
-}());
-exports.default = Cart;
+    }
+}
